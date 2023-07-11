@@ -1,0 +1,6 @@
+/* Thư viện Grid system thay cho bootrap5 */
+.grid{
+    width: 100%;
+    display: block;
+    padding: 0;
+}

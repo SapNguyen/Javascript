@@ -1,0 +1,90 @@
+---Bootrap----
+1.Container
+.container: thùng chứa
+.container-flud: là thùng chứa đầy đủ
+.container pt-5: thùng chứa có padding top 5 lần
+.container p-5: padding tất cả với 5 lần
+.container my-5(có thể dùng m và mt): magirn 5 lần
+.border: là border
+.dg-dark: background màu dark
+
+-Có 5 loại container để thay đổi khung hình
+.container-sm, md, lg, xl, xxl : dùng md or sm thì hợp lý nếu responsive mobile, tablet
+
+2.Grid
+-1 grid gồm 12 column
+-row
+-có 6 loại column:
+.col, .col-sm-, md , lg , xl , xxl tùy từng thiết bị có số liêu tăng dần
+ví dụ : col-sm-3 thì mỗi cột chiếm 3/12 phần
+.text-white: chữ trắng
+-sm là màn hình <576px thì còn 1 dòng
+
+3.Text
+.display là hiển thị cỡ chữ
+-<mark></mark> có nền vàng ở chữ mình cần bôi đen
+-<abbr title="World Health Organization">WHO</abbr> đặt dưới chân chữ đấy để hiểu chữ đấy là gì
+-chỉ dẫn nguồn
+<blockquote class="blockquote">
+    <p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
+    <footer class="blockquote-footer">From WWF's website</footer>
+  </blockquote>
+-kbd là bôi đen
+-bỏ gạch đầu dòng thể a
+.text-decoration-none
+
+4.Color and background-color
+.text-primary, .text-success, .text-info, .text-warning, , .text-danger
+-opacity
+text-black-50
+
+-background-color
+.bg-primary, .bg-success, .bg-info, .bg-warning, .bg-danger, .bg-secondary, .bg-darkvà .bg-light.
+
+-kết hợp text and background
+.text-bg-success
+
+5.table
+-nhiều loại table
+.table-dark
+
+-table có thể scrollbar
+table-responsive
+
+6. khi dùng để đăng ký, đăng nhập tại trang web thì dùng Modal(phương thức)
+
+7.Khi dùng chạy chạy các hình ảnh (Carousel)
+
+8.Khi tin nhắn có 2 tin nhắn (badges)
+
+9.Progress Bars dùng để hiện phần trăm
+
+10. tooltip dùng để khi hover vào sẽ hiện lên ví dụ(chú giải)
+
+11. popovers khi người dùng nhấn vào sẽ hiện chú giải
+
+12.Toast dùng hiển thị cảnh báo
+
+13.Scrollspy khi cuộn đến vị trí cần cuộn thì biểu tượng vị trí đó hiện lên
+
+14.Offcanvas dùng để ấn vào thì mở mục lục lên (thường dùng ở mobile) menu điều hướng
+có thể điều chỉnh khi kích thước phù hợp thì hiện offcanvas
+
+15.Ultilities các tiện ích của Boostrap5
+shadow dùng để làm bóng
+
+16.ratio dùng để gắn video vào khung hình
+-gắn video dùng iframe
+-visible dùng để show
+-invisible dùng để hide
+-btn-close
+-Có 11 màu cơ bản
+.text-muted, .text-primary, .text-success, .text-info, .text-warning, , .text-danger, .text-secondary, .text-white, .text-dark, .text-body(màu cơ thể mặc định/thường là màu đen) và .text-light
+
+17.có thể thay đổi được màu cả trang web
+-Dark mode
+
+18.BT5 khác 3 và 4 là có dùng flexbox thay vì float
+d-flex
+d-inline-flex thu hẹp lại box vừa đủ
+-flex-fill để độ rộng bằng nhau
