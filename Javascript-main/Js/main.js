@@ -33,8 +33,13 @@
 // },1000) 
 // sau 1 giây thì thông báo dc chạy
 
-setInterval(function () {
-    alert('Thông báo'+Math.random)
-},1000)
+// setInterval(function () {
+//     alert('Thông báo'+Math.random)
+// },1000)
 
+// Toán tử Javascript
+// 1.Toán tử số học 
+// Toán tử gán 
+// Toán tử so sánh 
+// Toán tử logic
 
