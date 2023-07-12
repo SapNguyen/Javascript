@@ -111,3 +111,51 @@ var showMessage2 = function(){
 var fullName = 'The anh la \'Sieu nhan \''
 
 console.log(`Toi la ${fullName}`)
+
+// chuỗi
+// các phương thức và thuộc tính làm việc với chuỗi
+/*
+    1.length
+    2.find index - console.log(sh.indexOf('JS')) - lastIndexOf - search
+    3.cut string - console.log(sh.slice(4,6)) - cắt
+    4.replace - console.log(sh.replace('JS', 'Javascript'))
+    - console.log(sh.replace(/Js/g, 'Javascript'))
+    - biểu thức chính quy(ghi đè tất cả các chữ JS)
+    5.convert to upper case 
+    toUpperCase()
+    6.convert to lower case
+    toLowerCase()
+    7.trim lấy dữ liệu mà ví dụ ng dùng nhập thừa cách
+    -bỏ khoảng trắng thừa 
+    console.log(sh.trim())
+
+    8.split 
+    -cắt chuỗi 
+    Ví dụ
+    var languages = 'Js,PHP,Ruby'
+    console.log(languegas.split(','))
+    -tạo string thành array
+
+    9.get a character by index - lấy được 1 kí tự
+    const myS = 'The Anh'
+    console.log(myS.charAt(0)) - lấy được T
+    console.log(myS[0])
+ */
+
+    //Số
+    /*
+    Number.isFinite()	Xác định xem giá trị đã cho có phải là số hữu hạn hay không. Trả về boolean
+    Number.isInteger()	Xác định xem giá trị đã cho có phải là số nguyên hay không. Trả về boolean
+    Number.parseFloat()	Chuyển đổi chuỗi đã cho thành một số dấu phẩy động
+    Number.parseInt()	Chuyển đổi chuỗi đã cho thành một số nguyên
+    Number.prototype.toFixed()	Chuyển đổi và trả về chuỗi đại diện cho số đã cho, có số chữ số chính xác sau dấu thập phân
+    Number.prototype.toString()	Chuyển đổi và trả về số đã cho dưới dạng chuỗi
+     */
+    console.log(isNaN(result)) //kiếm tra xem số đấy có hợp lệ hay không
+    console.log(age.toString())
+    console.log(age.toFixed())//làm tròn số
+    console.log(age.toFixed(2))//làm tròn 2 số sau số thập phân
+    function isNumber(value){
+        return typeof value == 'number' && !isNaN(value) ? true:false
+    }
+    //hàm có phải số number k
