@@ -1,4 +1,3 @@
-
 // 1.alert('Hi javascript!')
 
 // 2.var fullName = 'Nguyen The Anh';
@@ -43,3 +42,72 @@
 // Toán tử so sánh 
 // Toán tử logic
 
+// function
+var myFunction = function(){
+    alert('Hi')
+}
+
+// Object types kiểu dữ liệu Object
+var myObject = {
+    name: 'Thế Anh',
+    age:21,
+    address:'Hà Nội',
+    myFunction: function(){
+
+    }
+}
+console.log('myObject',myObject)
+
+var myArray = [
+    'Javascript',
+    'PHP',
+    'Ruby'
+]
+console.log(typeof a)//kiểu gì
+
+// == khách === == là sét chỉ số chứ k sét datatype
+
+// !! giống booleand
+
+// Hàm
+// cách đặt tên hàm
+
+/*
+    a-z A-Z 0-9(k được đặt kí tự đầu tiên)
+*/
+function showDialog(){
+    alert('hello')
+}
+showDialog()
+
+function writeLog(message){
+    console.log(message)
+    //message tham số
+}
+writeLog('Test')//Test là đối số 
+
+// Arguments
+function writeLog(){
+    console.log(arguments)
+    //arguments giống như 1 mạng khi ta gọi ra
+}
+
+function writeLog(){
+    var myString = ''
+    for(var param of arguments) {
+        myString +=  `${param} -`
+    }
+    // ${} để lấy được phần tử trong ''
+    console.log(myString)
+}
+
+function showMessage(){
+    console.log('Declaration function')
+}
+var showMessage2 = function(){
+    console.log('Expression function')
+}
+
+var fullName = 'The anh la \'Sieu nhan \''
+
+console.log(`Toi la ${fullName}`)
