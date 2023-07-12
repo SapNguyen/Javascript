@@ -95,8 +95,19 @@ function writeLog(){
 function writeLog(){
     var myString = ''
     for(var param of arguments) {
-        myString += '${param} - '
+        myString +=  `${param} -`
     }
     // ${} để lấy được phần tử trong ''
     console.log(myString)
 }
+
+function showMessage(){
+    console.log('Declaration function')
+}
+var showMessage2 = function(){
+    console.log('Expression function')
+}
+
+var fullName = 'The anh la \'Sieu nhan \''
+
+console.log(`Toi la ${fullName}`)
