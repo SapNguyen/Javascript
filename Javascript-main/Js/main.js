@@ -159,3 +159,97 @@ console.log(`Toi la ${fullName}`)
         return typeof value == 'number' && !isNaN(value) ? true:false
     }
     //hàm có phải số number k
+
+    //Mảng
+    var languages = [
+        'Javascript',
+        'PHP',
+        'Ruby',
+    ]
+    console.log(Array.isArray(languages))
+    //lấy phần tử theo index
+    console.log(languages[0])
+
+    //Các cách làm việc với Array(phuong thuc)
+
+    var languages = [
+        'Javascript',
+        'PHP',
+        'Ruby',
+    ]
+
+    console.log(languages.toString())//chuyển array sang chuỗi
+    console.log(languages.join(' - '))//chuyển array sang chuỗi
+
+    //POP
+    console.log(languages.pop())// xóa phần tử cuối và trả về ptu đã xóa
+
+    //push thêm phần tử vào cuối mảng
+    console.log(languages.push('dast'))
+
+    //shift xóa phần tử ở đầu mảng
+    console.log(languages.shift())
+
+    //unshift thêm phần tử ở đầu mảng
+    console.log(languages.unshift())
+
+    //splicing xóa chèn cắt
+
+    languages.splice(1,1)//xóa phần tử PHP vì PHP [1] và vế sau là 1 phần tử
+    //chèn
+    languages.splice(1,0,'Dart')
+
+    //concat dùng để nối array
+    var languages2 = [
+        'Dart',
+        'OS'
+    ]
+    console.log(languages.concat(languages2))
+
+    //slicing cắt
+    console.log(languages.slice(1,2))
+    console.log(languages.slice(0)) //cpppy mảng
+
+     //Object
+     var myInfo = {
+        name: 'Thế Anh',
+        age: 18,
+        address: 'Hà Nội,VN',
+        [emailKey]: 'anh1502965',
+        getName: function(){
+            return this.name
+        }
+     }
+     myInfo.email = 'anh1502965'
+     console.log(myInfo.name)
+     console.log(myInfo[address])
+
+     var emailKey = 'email'
+     
+     //xóa 
+     delete myInfo.email
+     //Function --> Phương thức / method
+     //Others --> Thuộc tính / property
+
+     //Object constructor
+     function User(firstName, lastName, avatar){
+        this.firstName=firstName,
+        this.lastName=lastName,
+        this.avatar=avatar,
+        this.getName = function(){
+            return `${this.firstName} ${this.lastName}`
+        }
+     }
+     var author = new User('The Anh','Anh','Avatar')
+     author.title = 'Hi'
+     var user = new User('The Anh','Anh','Avatar')
+     user.comment= 'Hi'
+
+     console.log(author)
+     //Object prototype
+     User.prototype.className = 'F8' //Thêm thuộc tính
+     User.prototype.getClassName = function(){
+        return this.className
+     }//Thêm phương thức
+
+
