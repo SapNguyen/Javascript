@@ -252,4 +252,138 @@ console.log(`Toi la ${fullName}`)
         return this.className
      }//Thêm phương thức
 
+     //Đối tượng Date
+     var date = new Date();
 
+     var year = date.getFullYear();
+
+     var month = date.getMonth() + 1;
+     var day = date.getDate();
+     console.log(`${year} - ${month} - ${day}`)
+
+     //Math object
+     console.log(Math.PI)
+     //round làm tròn số
+     //abs giá trị tuyệt đối
+     //ceil làm tròn trên
+     //floor làm tròn dưới
+     //random
+     var random = Math.floor(Math.random() * 100 )
+     var bonus = [
+        '10 coin',
+        '20 coin'
+     ]
+     console.log(bonus[random])
+
+     //Ví dụ làm game
+     if(random <50){
+        console.log('Cường hóa thành công')
+     }
+     function getRandomItem(array){
+        var random = Math.floor(Math.random())
+        
+        return array[random]
+    }
+     //min
+     //max
+
+     //if else
+     //if(){}
+     //else if(){}
+
+     //switch
+     switch (date){
+        case 2:
+            console.log('Hôm nay là thứ 2')
+            break
+        case 3:
+            console.log('Hôm nay là thứ 3')
+            break
+        case 4:
+        case 5:
+            console.log('Hôm nay là thứ 4,5')
+            break
+        default:
+            console.log('không biết')
+     }
+     //switch là biết trc giá trị còn if là dùng a>b so sánh tính đúng sai
+
+     //toán tử 3 ngôi - ternary operator
+     var course = {
+        name: 'Javascript',
+        coin:250
+     }
+    //  if(course.coin > 0){
+    //     console.log(`${course.coin} Coins`)
+    //  }
+    //  else{
+    //     console.log('Miễn phí')
+    //  }
+
+    var result = course.coin > 0 ? `${course.coin} Coins` : console.log('Miễn phí')
+    console.log(result)//toán tử 3 ngôi là 3 vế 1.course... 2. sau ? 3. miễn phí
+
+    var a= 1
+    var b=2 
+
+    var c = a>0 ? a : b 
+    // Làm bài
+    function getCanVoteMessage(age){
+        return age >= 18 ? "Bạn có thể bỏ phiếu" : "Bạn chưa được bỏ phiếu"
+    }
+
+
+
+    // Kỳ vọng
+    console.log(getCanVoteMessage(18)) // 'Bạn có thể bỏ phiếu'
+    console.log(getCanVoteMessage(15)) // 'Bạn chưa được bỏ phiếu'
+
+    //Vòng lặp
+    /*
+        1.for - lặp với đk đúng
+        for (var i = 0; i <=1000; i++){
+            console.log(i);
+        }
+        2.for/in- lặp qua key của đối đối tượng
+        3.for/of - lặp qua value của đối tượng
+        4.while - lặp khi điều kiện đúng
+        5.do/while - lặp ít nhất 1 lần, sau đó lặp khi đk đúng
+    */
+        function getRandNumbers(min,max,length){
+            var array = []
+            for(var i=1;i<=length;i++){
+                array.push(Math.random() * (max - min) + min)
+            }
+            return array
+        }
+        //tạo danh sách số ngẫu nhiên
+        //Hàm tính tổng mảng
+        function getTotal(arr) {
+            var s = 0
+            for(var i=0;i<arr.length;i++){
+                s +=  arr[i]
+            }
+            return s
+        }
+        //Vừa kết hợp Mảng và Object
+        var orders = [
+            {
+                name: 'Khóa học HTML - CSS Pro',
+                price: 3000000
+            },
+            {
+                name: 'Khóa học Javascript Pro',
+                price: 2500000
+            },
+            {
+                name: 'Khóa học React Pro',
+                price: 3200000
+            }
+        ]
+        function getTotal(orders){
+            var s=0
+            for (var i = 0;i<orders.length;i++){
+                s+= orders[i].price
+            }
+            return s
+        }
