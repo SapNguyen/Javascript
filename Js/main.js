@@ -210,4 +210,130 @@ console.log(`Toi la ${fullName}`)
     console.log(languages.slice(1,2))
     console.log(languages.slice(0)) //cpppy mảng
 
+     //Object
+     var myInfo = {
+        name: 'Thế Anh',
+        age: 18,
+        address: 'Hà Nội,VN',
+        [emailKey]: 'anh1502965',
+        getName: function(){
+            return this.name
+        }
+     }
+     myInfo.email = 'anh1502965'
+     console.log(myInfo.name)
+     console.log(myInfo[address])
+
+     var emailKey = 'email'
      
+     //xóa 
+     delete myInfo.email
+     //Function --> Phương thức / method
+     //Others --> Thuộc tính / property
+
+     //Object constructor
+     function User(firstName, lastName, avatar){
+        this.firstName=firstName,
+        this.lastName=lastName,
+        this.avatar=avatar,
+        this.getName = function(){
+            return `${this.firstName} ${this.lastName}`
+        }
+     }
+     var author = new User('The Anh','Anh','Avatar')
+     author.title = 'Hi'
+     var user = new User('The Anh','Anh','Avatar')
+     user.comment= 'Hi'
+
+     console.log(author)
+     //Object prototype
+     User.prototype.className = 'F8' //Thêm thuộc tính
+     User.prototype.getClassName = function(){
+        return this.className
+     }//Thêm phương thức
+
+     //Đối tượng Date
+     var date = new Date();
+
+     var year = date.getFullYear();
+
+     var month = date.getMonth() + 1;
+     var day = date.getDate();
+     console.log(`${year} - ${month} - ${day}`)
+
+     //Math object
+     console.log(Math.PI)
+     //round làm tròn số
+     //abs giá trị tuyệt đối
+     //ceil làm tròn trên
+     //floor làm tròn dưới
+     //random
+     var random = Math.floor(Math.random() * 100 )
+     var bonus = [
+        '10 coin',
+        '20 coin'
+     ]
+     console.log(bonus[random])
+
+     //Ví dụ làm game
+     if(random <50){
+        console.log('Cường hóa thành công')
+     }
+     function getRandomItem(array){
+        var random = Math.floor(Math.random())
+        
+        return array[random]
+    }
+     //min
+     //max
+
+     //if else
+     //if(){}
+     //else if(){}
+
+     //switch
+     switch (date){
+        case 2:
+            console.log('Hôm nay là thứ 2')
+            break
+        case 3:
+            console.log('Hôm nay là thứ 3')
+            break
+        case 4:
+        case 5:
+            console.log('Hôm nay là thứ 4,5')
+            break
+        default:
+            console.log('không biết')
+     }
+     //switch là biết trc giá trị còn if là dùng a>b so sánh tính đúng sai
+
+     //toán tử 3 ngôi - ternary operator
+     var course = {
+        name: 'Javascript',
+        coin:250
+     }
+    //  if(course.coin > 0){
+    //     console.log(`${course.coin} Coins`)
+    //  }
+    //  else{
+    //     console.log('Miễn phí')
+    //  }
+
+    var result = course.coin > 0 ? `${course.coin} Coins` : console.log('Miễn phí')
+    console.log(result)//toán tử 3 ngôi là 3 vế 1.course... 2. sau ? 3. miễn phí
+
+    var a= 1
+    var b=2 
+
+    var c = a>0 ? a : b 
+    // Làm bài
+    function getCanVoteMessage(age){
+        return age >= 18 ? "Bạn có thể bỏ phiếu" : "Bạn chưa được bỏ phiếu"
+    }
+
+
+
+    // Kỳ vọng
+    console.log(getCanVoteMessage(18)) // 'Bạn có thể bỏ phiếu'
+    console.log(getCanVoteMessage(15)) // 'Bạn chưa được bỏ phiếu'
