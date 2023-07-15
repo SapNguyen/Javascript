@@ -337,3 +337,135 @@ console.log(`Toi la ${fullName}`)
     // Kỳ vọng
     console.log(getCanVoteMessage(18)) // 'Bạn có thể bỏ phiếu'
     console.log(getCanVoteMessage(15)) // 'Bạn chưa được bỏ phiếu'
+
+    //Vòng lặp
+    /*
+        1.for - lặp với đk đúng
+        for (var i = 0; i <=1000; i++){
+            console.log(i);
+        }
+        2.for/in- lặp qua key của đối đối tượng
+        3.for/of - lặp qua value của đối tượng
+        4.while - lặp khi điều kiện đúng
+        5.do/while - lặp ít nhất 1 lần, sau đó lặp khi đk đúng
+    */
+        function getRandNumbers(min,max,length){
+            var array = []
+            for(var i=1;i<=length;i++){
+                array.push(Math.random() * (max - min) + min)
+            }
+            return array
+        }
+        //tạo danh sách số ngẫu nhiên
+        //Hàm tính tổng mảng
+        function getTotal(arr) {
+            var s = 0
+            for(var i=0;i<arr.length;i++){
+                s +=  arr[i]
+            }
+            return s
+        }
+        //Vừa kết hợp Mảng và Object
+        var orders = [
+            {
+                name: 'Khóa học HTML - CSS Pro',
+                price: 3000000
+            },
+            {
+                name: 'Khóa học Javascript Pro',
+                price: 2500000
+            },
+            {
+                name: 'Khóa học React Pro',
+                price: 3200000
+            }
+        ]
+        function getTotal(orders){
+            var s=0
+            for (var i = 0;i<orders.length;i++){
+                s+= orders[i].price
+            }
+            return s
+        }
+
+        //for in
+        for(var key in oders){
+            console.log(key)
+            console.log(oders[key])
+        }
+        function run(object) {
+            var arr = []
+            for(var key in object){
+                arr.push( `Thuộc tính ${key} có giá trị ${object[key]}`)
+            }
+            return arr
+        }
+        
+        // Expected results:
+        console.log(run({ name: 'Nguyen Van A', age: 16 }));
+
+        //for of
+        for(var key of orders){
+            console.log(key)
+        }
+        var myInfo = {
+            name: 'The Anh',
+            age:18
+        }
+        for(var value of Object.keys(myInfo)){
+            console.log(value)
+        }
+
+        //while
+        var i = 0;
+        while (i<1000){
+            i++
+            console.log(i)
+        }
+
+
+        //do while
+        var i = 0
+        do{
+            i++
+            console.log(i)
+        }while(i<10)
+
+        var isSuccess = false
+        do{
+            i++
+            console.log('Nap the lan '+i)
+            if(true){
+                isSuccess=true;
+            }
+        }while(!isSuccess && i<3)
+
+        //break continue 
+        for(var i=0; i<10; i++){
+            if(i%2!==0){
+                continue;//nếu là số lẻ thì ngừng lại và tiếp tục số sau
+            }
+            console.log(i)
+            if(i>=5){
+                break
+            }
+        }
+
+        //vòng lặp lồng nhau - Nested loop
+        var myArray = [
+            [1,2],
+            [3,4],
+            [5,6]
+        ]
+        for(var i=0; i<myArray.length; i++){
+            for(var j=0; j<myArray[i].length; j++){
+                console.log(myArray[i][j])
+            }
+        }
+        for(i=100;i>=0;i -=5){
+            console.log(i)
+          }
+
+
+          
+        //Đệ quy
