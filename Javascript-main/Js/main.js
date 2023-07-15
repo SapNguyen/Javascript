@@ -387,3 +387,295 @@ console.log(`Toi la ${fullName}`)
             }
             return s
         }
+
+        //for in
+        for(var key in oders){
+            console.log(key)
+            console.log(oders[key])
+        }
+        function run(object) {
+            var arr = []
+            for(var key in object){
+                arr.push( `Thuộc tính ${key} có giá trị ${object[key]}`)
+            }
+            return arr
+        }
+        
+        // Expected results:
+        console.log(run({ name: 'Nguyen Van A', age: 16 }));
+
+        //for of
+        for(var key of orders){
+            console.log(key)
+        }
+        var myInfo = {
+            name: 'The Anh',
+            age:18
+        }
+        for(var value of Object.keys(myInfo)){
+            console.log(value)
+        }
+
+        //while
+        var i = 0;
+        while (i<1000){
+            i++
+            console.log(i)
+        }
+
+
+        //do while
+        var i = 0
+        do{
+            i++
+            console.log(i)
+        }while(i<10)
+
+        var isSuccess = false
+        do{
+            i++
+            console.log('Nap the lan '+i)
+            if(true){
+                isSuccess=true;
+            }
+        }while(!isSuccess && i<3)
+
+        //break continue 
+        for(var i=0; i<10; i++){
+            if(i%2!==0){
+                continue;//nếu là số lẻ thì ngừng lại và tiếp tục số sau
+            }
+            console.log(i)
+            if(i>=5){
+                break
+            }
+        }
+
+        //vòng lặp lồng nhau - Nested loop
+        var myArray = [
+            [1,2],
+            [3,4],
+            [5,6]
+        ]
+        for(var i=0; i<myArray.length; i++){
+            for(var j=0; j<myArray[i].length; j++){
+                console.log(myArray[i][j])
+            }
+        }
+        for(i=100;i>=0;i -=5){
+            console.log(i)
+          }
+
+
+          
+        //Đệ quy
+        var array =['a', 'b','c','a', 'b','c']
+        console.log(...[(new Set(array))])//Set là độc nhất nên nó lọc ra
+
+        function countDown(num){
+            if(num>0){
+                console.log(num);
+                return countDown(num-1);
+            }
+            return num;
+        }
+        countDown(3)//đầu tiên là 3 > 0 thì cl ra số 3 và return count 3-1
+
+        var array = ['Java','PHP','Ruby']
+        function loop(start,end,cb){
+            if(start<=end){
+                cb(start)
+                return loop(start+1,end,cb)
+            }
+        }
+        loop(0,array.length-1,function(index){
+            console.log('index',index)
+            console.log(array[index])
+        })
+        function giaiThua(num){
+            var output = 1
+            for(var i = num; i >0 ; i--){
+                output = output * i
+            }
+            return output
+        }
+        console.log(giaiThua(6))
+        //dùng đệ quy
+        function giaiThua(num){
+            if(num > 0){
+                return num * giaiThua(num - 1)
+            }
+            return 1
+        }
+
+
+        //DÙNG NHIỀU
+        //Mảng methods:
+        /*
+            truyền hàm
+            forEach() - duyệt phần tử
+            every()
+            some()
+            find()
+            filter()
+            map()
+            reduce()
+        */
+       var array = [
+        {id:1,
+            name: 'Java',
+            coin:0
+        },
+        {
+            id: 2,
+            name: 'HTML',
+            coin: 0
+        },
+        {
+            id:3,
+            name:'PHP',
+            coin: 400
+        }
+       ]
+       array.forEach(function(array,index){
+        console.log(index,array)
+       })
+       var isFree = array.every(function(array,index){
+        return array.coin ===0
+       })
+       //every là tất cả còn some 1 tk đúng thì trả true
+       //find
+       var isFind = array.find(function(array,index){
+        return array.name === 'Ruby'
+       })
+       //filter trả về tất cả phần tử 
+       var isFind = array.filter(function(array,index){
+        return array.name === 'Ruby'
+       })
+
+
+       //Tìm môn thể thao bảng filter 
+       const sports = [
+        {
+            name: 'Bóng rổ',
+            like: 6
+        },
+        {
+            name: 'Bơi lội',
+            like: 5
+        },
+        {
+            name: 'Bóng đá',
+            like: 10
+        },
+        ]
+       function getMostFavoriteSport(sports){
+            var sport= sports.filter(function(array){
+                return array.like > 6
+        })
+            return sport
+        }
+        console.log(getMostFavoriteSport(sports)) 
+
+
+
+        //map()
+        var course = [
+        {
+            name: 'Bóng rổ',
+            like: 6
+        },
+        {
+            name: 'Bơi lội',
+            like: 5
+        },
+        {
+            name: 'Bóng đá',
+            like: 10
+        },
+        ]
+        function courseHandler(course,index){
+            return{
+                id:course.id,
+                name:`Khoa hoc: ${course.name}`,
+                coin:course.coin,
+                coinText: `Gia: ${course.coin}`,
+                index:index
+            }
+            //return `<h2> ${course.name} </h2>`
+        }
+        var newCourses = course.map(courseHandler)//map giống như coppy lại số lượng ob trong mảng 
+        //nhưng có thể sửa lại mới
+        //trả về tất cả những gì mà function coursehandler muốn
+        console.log(newCourses)
+        //Map dùng rất nhiều 
+
+
+
+        //reduce nhận về 1 giá trị duy nhất ví dụ như tính tổng
+        //ví dụ không phải reduce
+        var totalCoin = 0;
+        for(var course of courses){
+            totalCoin += course.coin
+        }
+        console.log(totalCoin)
+
+
+        //reduce nâng cao
+       //var i =0 
+        //dùng reduce để tính toán nhanh hơn nhiều dùng for
+        function coinHandler(accumulator,currentValue,currentIndex,originArray){
+            //i++
+
+            // var total = accumulator + currentValue.coin 
+            // console.table({
+            //     'Lượt chạy:':i,
+            //     'Biến tích trữ:': accumulator,
+            //     'Giá khóa học:': currentValue.coin,
+            //     'Tích trữ được:': total
+            // })
+
+            //accumulator là gán giá trị = 0 ở reduce gọi là giá trị khởi tạo cho tổng
+            return accumulator + currentValue.coin
+            //accumulator ban đầu gán bằng 0 ở reduce và khi chạy reduce nó sẽ lặp lại số 
+            //lần courses có giá trị 
+            // 0 + currentValue là giá trị hiện tại của mảng đang xét và 
+            //nó cộng tăng dần khi chạy hết reduce
+        }
+        //dùng reduce
+        var totalCoin = courses.reduce(coinHandler,0)
+        console.log(totalCoin)
+
+
+
+        //Ví dụ về reduce
+
+        var sportss = [
+            {
+                name: 'Bơi lội',
+                gold: 11
+            },
+            {
+                name: 'Boxing',
+                gold: 3
+            },
+            {
+                name: 'Đạp xe',
+                gold: 4
+            },
+            {
+                name: 'Đấu kiếm',
+                gold: 5
+            },
+        ]       
+
+        function getTotalGold(sports){
+            function goldHandler (a,b){
+                return a+b.gold
+            }
+            var totalGold = sports.reduce(goldHandler,0)
+            return totalGold
+        }   
+
+    // Expected results:
+    console.log(getTotalGold(sportss)) // Output: 23
