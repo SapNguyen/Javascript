@@ -469,3 +469,437 @@ console.log(`Toi la ${fullName}`)
 
           
         //Đệ quy
+        var array =['a', 'b','c','a', 'b','c']
+        console.log(...[(new Set(array))])//Set là độc nhất nên nó lọc ra
+
+        function countDown(num){
+            if(num>0){
+                console.log(num);
+                return countDown(num-1);
+            }
+            return num;
+        }
+        countDown(3)//đầu tiên là 3 > 0 thì cl ra số 3 và return count 3-1
+
+        var array = ['Java','PHP','Ruby']
+        function loop(start,end,cb){
+            if(start<=end){
+                cb(start)
+                return loop(start+1,end,cb)
+            }
+        }
+        loop(0,array.length-1,function(index){
+            console.log('index',index)
+            console.log(array[index])
+        })
+        function giaiThua(num){
+            var output = 1
+            for(var i = num; i >0 ; i--){
+                output = output * i
+            }
+            return output
+        }
+        console.log(giaiThua(6))
+        //dùng đệ quy
+        function giaiThua(num){
+            if(num > 0){
+                return num * giaiThua(num - 1)
+            }
+            return 1
+        }
+
+
+        //DÙNG NHIỀU
+        //Mảng methods:
+        /*
+            truyền hàm
+            forEach() - duyệt phần tử
+            every()
+            some()
+            find()
+            filter()
+            map()
+            reduce()
+        */
+       var array = [
+        {id:1,
+            name: 'Java',
+            coin:0
+        },
+        {
+            id: 2,
+            name: 'HTML',
+            coin: 0
+        },
+        {
+            id:3,
+            name:'PHP',
+            coin: 400
+        }
+       ]
+       array.forEach(function(array,index){
+        console.log(index,array)
+       })
+       var isFree = array.every(function(array,index){
+        return array.coin ===0
+       })
+       //every là tất cả còn some 1 tk đúng thì trả true
+       //find
+       var isFind = array.find(function(array,index){
+        return array.name === 'Ruby'
+       })
+       //filter trả về tất cả phần tử 
+       var isFind = array.filter(function(array,index){
+        return array.name === 'Ruby'
+       })
+
+
+       //Tìm môn thể thao bảng filter 
+       const sports = [
+        {
+            name: 'Bóng rổ',
+            like: 6
+        },
+        {
+            name: 'Bơi lội',
+            like: 5
+        },
+        {
+            name: 'Bóng đá',
+            like: 10
+        },
+        ]
+       function getMostFavoriteSport(sports){
+            var sport= sports.filter(function(array){
+                return array.like > 6
+        })
+            return sport
+        }
+        console.log(getMostFavoriteSport(sports)) 
+
+
+
+        //map()
+        var course = [
+        {
+            name: 'Bóng rổ',
+            like: 6
+        },
+        {
+            name: 'Bơi lội',
+            like: 5
+        },
+        {
+            name: 'Bóng đá',
+            like: 10
+        },
+        ]
+        function courseHandler(course,index){
+            return{
+                id:course.id,
+                name:`Khoa hoc: ${course.name}`,
+                coin:course.coin,
+                coinText: `Gia: ${course.coin}`,
+                index:index
+            }
+            //return `<h2> ${course.name} </h2>`
+        }
+        var newCourses = course.map(courseHandler)//map giống như coppy lại số lượng ob trong mảng 
+        //nhưng có thể sửa lại mới
+        //trả về tất cả những gì mà function coursehandler muốn
+        console.log(newCourses)
+        //Map dùng rất nhiều 
+
+
+
+        //reduce nhận về 1 giá trị duy nhất ví dụ như tính tổng
+        //ví dụ không phải reduce
+        var totalCoin = 0;
+        for(var course of courses){
+            totalCoin += course.coin
+        }
+        console.log(totalCoin)
+
+
+        //reduce nâng cao
+       //var i =0 
+        //dùng reduce để tính toán nhanh hơn nhiều dùng for
+        function coinHandler(accumulator,currentValue,currentIndex,originArray){
+            //i++
+
+            // var total = accumulator + currentValue.coin 
+            // console.table({
+            //     'Lượt chạy:':i,
+            //     'Biến tích trữ:': accumulator,
+            //     'Giá khóa học:': currentValue.coin,
+            //     'Tích trữ được:': total
+            // })
+
+            //accumulator là gán giá trị = 0 ở reduce gọi là giá trị khởi tạo cho tổng
+            return accumulator + currentValue.coin
+            //accumulator ban đầu gán bằng 0 ở reduce và khi chạy reduce nó sẽ lặp lại số 
+            //lần courses có giá trị 
+            // 0 + currentValue là giá trị hiện tại của mảng đang xét và 
+            //nó cộng tăng dần khi chạy hết reduce
+        }
+        //dùng reduce
+        var totalCoin = courses.reduce(coinHandler,0)
+        console.log(totalCoin)
+        var toltalCoin = courses.reduce(function(total,course){
+            return total + course.coin
+        },0)
+
+
+        //Ví dụ về reduce
+
+        var sportss = [
+            {
+                name: 'Bơi lội',
+                gold: 11
+            },
+            {
+                name: 'Boxing',
+                gold: 3
+            },
+            {
+                name: 'Đạp xe',
+                gold: 4
+            },
+            {
+                name: 'Đấu kiếm',
+                gold: 5
+            },
+        ]       
+
+        function getTotalGold(sports){
+            function goldHandler (a,b){
+                return a+b.gold
+            }
+            var totalGold = sports.reduce(goldHandler,0)
+            return totalGold
+        }   
+
+    // Expected results:
+    console.log(getTotalGold(sportss)) // Output: 23
+    
+    var num = [
+        100,200,220,200,480
+    ]
+    var totalCoin = num.reduce(function(total,num){
+        return total+num
+    })
+
+    var depthArray = [1,2,[3,4],5,6,[7,8,9]]
+    var flatArray = depthArray.reduce(function(flatOutput,depthItem){
+        return flatOutput.concat(depthItem)//nối mảng 
+    },[])//ban đầu flatOutput = []
+
+    var topics = [
+        {
+            topic:'Front-end',
+            courses: [
+                {
+                    id:1,
+                    title: "HTML,CSS"
+                },
+                {
+                    id:2,
+                    title:"JavaScript"
+                }
+            ]
+        },
+        {
+            topic:'Back-end',
+            courses:[
+                {
+                    id:1,
+                    title:"PHP"
+                },
+                {
+                    id:2,
+                    title:"NodeJS"
+                }
+            ]
+        }
+    ]
+    var newCourses = topics.reduce(function(courses,topic){
+        return courses.concat(topic.courses)//nối 4 khóa học
+    },[])
+    console.log(newCourses)
+    //reduce để gộp mảng xong dùng map để hiện giao diện ng dùng
+    var htmls = newCourses.map(function(course){
+        return  `
+            <div>
+                <h2>${course.title}</h2>
+                <p>ID: ${course.id}</p>
+            </div>
+        `
+    })
+    console.log(htmls.join(''))
+
+    //reduce cho ra 1 giá trị duy nhất của mảng đó
+            const donations = [20, 100, 80];
+        let total = donations.reduce((total,donation) => {
+           return total + donation;
+        }, 50);
+        console.log(total);//250
+
+    //filter có điều kiện
+            const numbers = [1,2,3,4,5,6,7,8];
+        let odds = numbers.filter(num => num % 2);
+        console.log(odds);//[1,3,5,7]       
+
+    //map để thay đổi giá trị đầu ra của mảng
+            const lengthArr = [1, 4, 3, 6];
+        let areaArr = lengthArr.map(length => length * length);
+        console.log(areaArr);//[1, 16, 9, 36]
+
+
+        //Ví dụ
+        var watchList = [
+            {
+              "Title": "Inception",
+              "Year": "2010",
+              "Rated": "PG-13",
+              "Released": "16 Jul 2010",
+              "Runtime": "148 min",
+              "Genre": "Action, Adventure, Crime",
+              "Director": "Christopher Nolan",
+              "Writer": "Christopher Nolan",
+              "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy",
+              "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+              "Language": "English, Japanese, French",
+              "Country": "USA, UK",
+              "imdbRating": "8.8",
+              "imdbVotes": "1,446,708",
+              "imdbID": "tt1375666",
+              "Type": "movie",
+            },
+            {
+              "Title": "Interstellar",
+              "Year": "2014",
+              "Rated": "PG-13",
+              "Released": "07 Nov 2014",
+              "Runtime": "169 min",
+              "Genre": "Adventure, Drama, Sci-Fi",
+              "Director": "Christopher Nolan",
+              "Writer": "Jonathan Nolan, Christopher Nolan",
+              "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+              "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+              "Language": "English",
+              "Country": "USA, UK",
+              "imdbRating": "8.6",
+              "imdbVotes": "910,366",
+              "imdbID": "tt0816692",
+              "Type": "movie",
+            },
+            {
+              "Title": "The Dark Knight",
+              "Year": "2008",
+              "Rated": "PG-13",
+              "Released": "18 Jul 2008",
+              "Runtime": "152 min",
+              "Genre": "Action, Adventure, Crime",
+              "Director": "Christopher Nolan",
+              "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+              "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+              "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
+              "Language": "English, Mandarin",
+              "Country": "USA, UK",
+              "imdbRating": "9.0",
+              "imdbVotes": "1,652,832",
+              "imdbID": "tt0468569",
+              "Type": "movie",
+            },
+            {
+              "Title": "Batman Begins",
+              "Year": "2005",
+              "Rated": "PG-13",
+              "Released": "15 Jun 2005",
+              "Runtime": "140 min",
+              "Genre": "Action, Adventure",
+              "Director": "Christopher Nolan",
+              "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+              "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+              "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
+              "Language": "English, Urdu, Mandarin",
+              "Country": "USA, UK",
+              "imdbRating": "8.3",
+              "imdbVotes": "972,584",
+              "imdbID": "tt0372784",
+              "Type": "movie",
+            },
+            {
+              "Title": "Avatar",
+              "Year": "2009",
+              "Rated": "PG-13",
+              "Released": "18 Dec 2009",
+              "Runtime": "162 min",
+              "Genre": "Action, Adventure, Fantasy",
+              "Director": "James Cameron",
+              "Writer": "James Cameron",
+              "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+              "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+              "Language": "English, Spanish",
+              "Country": "USA, UK",
+              "imdbRating": "7.9",
+              "imdbVotes": "876,575",
+              "imdbID": "tt0499549",
+              "Type": "movie",
+            }
+          ];
+          function calculateRating(watchList){
+            var imdbNolan = watchList.filter(function(list){
+              return list.Director==="Christopher Nolan"
+            })
+            var imdbTotal = imdbNolan.reduce(function(a,b){
+              return a+Number(b.imdbRating)
+            },0)
+            var imdbAv = imdbTotal/imdbNolan.length
+            return imdbAv
+          }
+          
+          
+          // Expected results
+          console.log(calculateRating(watchList)); // Output: 8.675
+          
+          //hiểu rõ reduce
+          const number = [1,2,3,4,5]
+          const result = number.reduce((a,b)=>{
+            return a + b
+          })
+
+          //tự code reduce
+          Array.prototype.reduce2 = function(callBack,result){
+            let i = 0
+            if(arguments.length < 2){
+                i=1
+                result = this[0]
+            }
+            for(; i<this.length; i++){
+                result = callBack(result,this[i],i,this)
+            }
+            return result
+          }
+
+          
+          
+         function arrToObj(arr){
+            return arr.reduce(function(a,b){
+               a[b[0]]=b[1]
+               return a
+            },{})
+        }
+        // Expected results:
+        var arr = [
+           ['name', 'Sơn Đặng'],
+           ['age', 18],
+        ];
+        console.log(arrToObj(arr)); // { name: 'Sơn Đặng', age: 18 }
+
+          
+          
+          
+          
+          
+          
