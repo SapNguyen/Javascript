@@ -1006,6 +1006,37 @@ console.log(`Toi la ${fullName}`)
             return output
         }
 
+
+
+
+
+
+
+
+
+
+
+
+//************************************************************************************************************** */
+
+
+
+
+          //Quan trọng
+
+        //HTML DOM **** quan trọng
+        //Document Object Model(tạo ra 1 mô hình thì đó là DOM) tuân theo W3C
           
-          
-          
+        /**
+         * Có 3 thành phần 
+         * 1. Element(ví dụ h1,h2,p,html)
+         * 2.Attribute(thuộc tính bên trong các thẻ )
+         * 3.Text(đoạn chữ trong các elemnt)
+         */
+        //Node
+        //Js chỉ là công cụ cung cấp cho mình cách cung cấp vào HTML DOM
+        //Js: Browse | Server(NodeJs)
+        //Browser: HTML -> DOM ->WEB API
+
+        // HTML DOM
+        // Document là đại diện cho cả trang web của mình 
