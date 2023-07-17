@@ -544,7 +544,7 @@ console.log(`Toi la ${fullName}`)
         return array.coin ===0
        })
        //every là tất cả còn some 1 tk đúng thì trả true
-       //find
+       //find trả về 1 cái tìm được đầu tiên
        var isFind = array.find(function(array,index){
         return array.name === 'Ruby'
        })
@@ -896,10 +896,148 @@ console.log(`Toi la ${fullName}`)
            ['age', 18],
         ];
         console.log(arrToObj(arr)); // { name: 'Sơn Đặng', age: 18 }
+        
+        //includes method (Array,String)
+        var title = 'Responsive web design'
+        console.log(title.includes('web'))  
 
+        var courses = [
+            'Javascript',
+            'PHP',
+            'Dart'
+        ]
+        console.log(courses.includes('PHP'))
+
+        //Callback
+        var courses = [
+            'Javascript',
+            'PHP',
+            'Dart'
+        ]
+        Array.prototype.map2 = function(callBack){
+            var output = []
+            for(var i = 0; i < this.length; ++i){
+                var result = callBack(this[i],i)
+                output.push(result)
+            }
+            return output
+        }//tạo thêm 1 function map2 cho array
+        var htmls = courses.map2(function(course){
+            return course * 2;
+        })
+        console.log(htmls.join(''))
+
+        //
+        for(var index in courses){
+            console.log(courses[index])
+        }
+
+        // My forEach()
+        var corses = [
+            'Javascript',
+            'PHP',
+            'Ruby'
+        ]
+        //như 1 vòng lặp
+        courses.forEach(function(course,index,array){
+            console.log(course,index,array)
+        })
+        //course trả về giá trị của mảng , index trả về số trong mảng,array trả về array gốc
+         
+        //forEach
+        Array.prototype.forEach2 = function(callBack){
+            var output = [];
+            for(var index in this){
+                if(this.hasOwnProperty(index)){
+                    var result=callBack(this[index],index,this)
+                    if(result){
+                        output.push(this[index])
+                    }
+                }
+            }
+            return output
+        }
+
+        //filter2
+        var filterCourses = courses.filter(function(course){
+            return corses.coin>700
+        })
+        console.log(filterCourses)
+
+        Array.prototype.filter2 = function(callBack){
+            for(var index in this){
+                if(this.hasOwnProperty(index)){
+                    callBack(this[index],i,this)
+                }
+            }
+        }
           
+    
+        //Some() tối thiểu 1 phần tử thỏa mãn thì in ra true
+        //nếu có result = true thì in ra là đúng
+        var isResult = courses.some(function(course){
+            return course.isResult
+        })
+
+        Array.prototype.some2 = function(callBack){
+            for(var index in this){
+                if(this.hasOwnProperty(index)){
+                    if(callBack(this[index],index,this)){
+                        return true
+                    }
+                    
+                }
+            }
+            return false
+        }
+
+        //every nếu tất cả đúng thì nó mới in ra true
+        Array.prototype.every2 = function(callBack){
+            var output= true
+            for(var index in this){
+                if(this.hasOwnProperty(index)){
+                    var result = callBack(this[index],index,this)
+                    if(!result){
+                        output= false
+                        break
+                    }
+                }
+            }
+            return output
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+//************************************************************************************************************** */
+
+
+
+
+          //Quan trọng
+
+        //HTML DOM **** quan trọng
+        //Document Object Model(tạo ra 1 mô hình thì đó là DOM) tuân theo W3C
           
-          
-          
-          
-          
+        /**
+         * Có 3 thành phần 
+         * 1. Element(ví dụ h1,h2,p,html)
+         * 2.Attribute(thuộc tính bên trong các thẻ )
+         * 3.Text(đoạn chữ trong các elemnt)
+         */
+        //Node
+        //Js chỉ là công cụ cung cấp cho mình cách cung cấp vào HTML DOM
+        //Js: Browse | Server(NodeJs)
+        //Browser: HTML -> DOM ->WEB API
+
+        // HTML DOM
+        // Document là đại diện cho cả trang web của mình 
+
