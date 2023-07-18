@@ -140,6 +140,7 @@
         //phải duyệt qua mảng phần tử đó
         var d = document.querySelectorAll('div')
         d.forEach((item)=>{item.classList.add('box')})
+        //thay thế cho forEach(function(item){item.classList.add('box')})
 
 
 
@@ -164,7 +165,7 @@
         //Key up/down
         var inputValue
         //input
-        var inputElement = document.querySelector('input[type="text]')
+        var inputElement = document.querySelector('input[type="text"]')
         inputElement.onchange = function(e){//bỏ focus để ấn ra ngoài
             console.log(e.target.value)
         }
@@ -172,7 +173,7 @@
             console.log(e.target.value)
         }
         //checkbox
-        var inputElement = document.querySelector('input[type="checkbox]')
+        var inputElement = document.querySelector('input[type="checkbox"]')
         inputElement.onchange = function(e){//bỏ focus để ấn ra ngoài
             console.log(e.target.checked)//nếu nó được checked thì true
         }
@@ -193,6 +194,82 @@
                         break
             }
         }
+
+        //preventDefault loại bỏ hành vi mặc định của trình duyệt
+        //ví dụ có thẻ a khi ấn vào thì đến href nhưng mình k muốn đến href nữa
+        //var aElement = document.querySelector('a')
+        var aElement = document.links
+        for(var i=0; i<aElement.length; ++i){
+            aElement[i].onclick = function(e){
+                if(!e.target.href.starsWith('https://f8.edu.vn')){
+                    e.preventDefault()//ngăn chặn hành vi chuyển trang
+                    
+                }
+            }
+        }
+        ulElement.onmousedown = function(e){
+            e.preventDefault()//ngăn chặn kích chuột xuống
+        }
+        var ulElement = document.querySelector('ul').onclick= function(e) {
+            console.log(e.target)
+
+        }
+
+        //stopPropagation loại bỏ sự kiện nổi bọt(ví dụ gọi tk con nhưng vẫn ra tk cha)
+        //click vào tk con nhưng cả tk con và tk cha đều nổi lên thì khi đó
+        //chúng ta cần ngăn lại tk cha k cần suất hiện nữa
+        document.querySelector('div').onclick = function(e){
+            console.log('DIV')
+        }
+        document.querySelector('button').onclick = function(e){
+            e.stopPropagation()//ngăn chặn tk div hiện lên vì div là tk cha
+            console.log('button')
+        }
+
+
+        //1.Event listener
+        /*
+        2.JSON
+        3.Fetch
+        4.DOM location
+        5.Local storage
+        6.Session storage
+        7.Coding convention
+        8.Best Practices
+        9.Mistakes
+        10.Performance
+
+        1. Xử lý nhiều việc khi 1 events xảy ra
+        2.Lắng nghe/Hủy bỏ lắng nghe
+        */
+       var btn = document.querySelector('btn')
+       console.log(btn)//=e.target
+
+       //Khi sử dụng DOM event
+       btn.onclick = function(){
+        console.log('Viec 1')
+       }
+       setTimeout(function(){
+        btn.onclick = function(){
+            console.log('Viec 1')
+           }
+       },3000)
+
+       //khi sử dụng Event Listener
+       //có thể thêm nhiều event trong element
+       function viec1(){
+        console.log(Math.random())
+       }
+       btn.addEventListener('click',viec1)
+       setTimeout(function(){
+        btn.removeEventListener('click',viec1)
+       })
+
+       //DOM event sử dụng trong TH đơn giản không phải gỡ nó đi
+       //Event listener sử dụng khi phải sử dụng nhiều thứ và xóa được
+
+       
+       
 
 
         
