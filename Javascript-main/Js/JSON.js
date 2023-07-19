@@ -326,6 +326,25 @@ fetch(courseAPI)
     })
 
 
+    //Front end ghép giao diện với API
+    //Front end có thể dùng API Fake để làm việc
+    //Backend làm API
+
+
+    //Postman làm việc với REST API
+    //Làm việc với API nhanh chóng
+    //CRUD(giống comment có thể thêm sửa xóa và lấy dữ liệu ra comment)
+    //Create:Tạo mới ->POST
+    //Read: Lấy dữ liệu ->GET
+    // Update: Chỉnh sửa -> PUT/PATCH
+    //Delete: Xóa ->DELETE
+
+    //Postman test hành động trước 
+    //Dùng trong postman
+
+    //Thêm/Sửa/Xóa với Fetch và REST API
+    
+
 
 
 

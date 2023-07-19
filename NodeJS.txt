@@ -1,0 +1,91 @@
+PS D:\JSON Server> npm -v
+9.6.7
+PS D:\JSON Server> npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.     
+
+Press ^C at any time to quit.
+package name: (json-server)
+version: (1.0.0)                                      
+description:                                          
+entry point: (index.js)                               
+test command:                                         
+git repository:                                       
+keywords:                                             
+author:                                               
+license: (ISC)                                        
+About to write to D:\JSON Server\package.json:
+
+{
+  "name": "json-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes) yes
+PS D:\JSON Server> npm i json-server
+
+added 321 packages, and audited 322 packages in 23s   
+
+96 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS D:\JSON Server> npm start
+
+> json-server@1.0.0 start
+> json-server --watch db.json
+
+
+  \{^_^}/ hi!
+
+  Loading db.json
+  Done
+
+  Resources
+  http://localhost:3000/courses
+
+  Home
+  http://localhost:3000
+  Type s + enter at any time to create a snapshot of the database
+  Watching...
+
+GET /courses 200 26.995 ms - 69
+
+ *  History restored 
+
+PS D:\JSON Server> npm start
+
+> json-server@1.0.0 start
+> json-server --watch db.json
+
+
+  \{^_^}/ hi!
+
+  Loading db.json
+  Done
+
+  Resources
+  http://localhost:3000/courses
+
+  Home
+  http://localhost:3000
+
+  Type s + enter at any time to create a snapshot of the database
+  Watching...
+
+GET /courses 304 28.054 ms - -
+GET /courses 200 20.964 ms - 69
