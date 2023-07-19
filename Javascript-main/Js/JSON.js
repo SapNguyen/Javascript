@@ -271,6 +271,61 @@ function getUsersByIds(userIds){
     },1000)
 }
 
+//Fetch (lấy dữ liệu từ Backend trả về)
+//Front-end xây dựng giao diện
+//Back-end xây dựng logic xử lý(CSDL)
+
+
+//API (URL)-> Application programing interface: Cổng giao tiếp giữa các phần mềm
+
+//Backend -> API (URL) -> Fetch -> JSON/XML
+//->JSON.parse -> Javascript types
+//-> Render ra giao diện với HTML
+
+var postAPI = 
+'https://jsonplaceholder.typicode.com/posts'
+//thằng backend sẽ đưa cho mình 1 link API để mình chuyển
+//Từ API sang JSON -> sang Javascript types 
+//Từ [] có thể -> HTML như ở trên
+//Đều gọi qua API để lấy giữ liệu từ Backend
+
+fetch(postAPI)
+    .then(function(response){
+        return response.json();
+        //JSON.parse: từ JSON -> Javascript types
+    })
+    // .then(function(posts){
+    //     console.log(posts);
+    // })
+    .then(function(posts){
+        //posts này là lấy được về return ở trên là 
+        //1 mảng [] vì then ở trên đã biến json thành mảng r
+        var htmls = posts.map(function(post){
+            return `<li>
+                <h2>${post.title}</h2>
+                <h2>${post.body}</h2>
+            </li>`
+        })//biến ra 1 mảng
+        var html = htmls.join('')//html đang ở dạng chuỗi
+        document.querySelector('post-block')//ở html đang là thẻ ul
+            .innerHTML = html //ul innerHTMl là thêm dữ liệu html là html
+    })
+    .catch(function(err){
+        console.log(err);//nếu mà bị lỗi thì nên có catch
+    })
+
+//Thư viện JSON server: API Server dùng để cho front-end muốn tạo API mà k có backend
+var courseAPI = 'http://localhost:3000/courses'
+
+fetch(courseAPI)
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(course){
+        console.log(course)//trả ra mảng
+    })
+
+
 
 
 
